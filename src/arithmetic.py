@@ -29,6 +29,14 @@ class Arithmetic():
         except ZeroDivisionError:
             pass
 
+    def modolo(self):
+        """ Dividing two variables """
+        try:
+            self.mod = self.a % self.b
+            return self.mod
+        except ZeroDivisionError:
+            pass
+
         
 if __name__ == "__main__":
     arith = Arithmetic(3,5)
@@ -36,3 +44,4 @@ if __name__ == "__main__":
     print(f"Sub:{arith.subtraction()}")
     print(f"Mul:{arith.multiplication()}")
     print(f"Div:{arith.division()}")
+    print(f"Mod:{arith.modolo()}")
