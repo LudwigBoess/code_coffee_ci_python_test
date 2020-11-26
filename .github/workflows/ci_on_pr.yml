@@ -22,12 +22,13 @@ jobs:
         with:
           python-version: "${{ matrix.python-version }}"
       - name: "Install dependencies"
-        run: pip install -r requirements.txt
+        run: pip install pytest 
+             pip install pytest-cov
       - name: "Run tests for ${{ matrix.python-version }}"
-        run: "python -m unittest tests.test_arithmetic"
-      # - name: "Convert coverage"
-      #   run: "python -m coverage xml"
-      # - name: "Upload coverage to Codecov"
-      #   uses: "codecov/codecov-action@v1"
-        # with:
-        #   fail_ci_if_error: true
+        run: "pytest -v tests/ --cov=exampy/"
+      - name: "Convert coverage"
+        run: "coverage xml"
+      - name: "Upload coverage to Codecov"
+        uses: "codecov/codecov-action@v1"
+        with:
+          fail_ci_if_error: true
