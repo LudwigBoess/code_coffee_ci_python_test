@@ -10,7 +10,7 @@ jobs:
     name: "Python ${{ matrix.python-version }}"
     runs-on: "ubuntu-latest"
     env:
-      USING_COVERAGE: '3.6,3.8'
+      USING_COVERAGE: '3.6,3.7,3.8'
 
     strategy:
       matrix:
@@ -25,5 +25,3 @@ jobs:
         run: pip install -r requirements.txt
       - name: "Run tests for ${{ matrix.python-version }}"
         run: "python -m unittest tests.test_arithmetic"
-        with:
-          fail_ci_if_error: true
