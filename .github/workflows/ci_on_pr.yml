@@ -24,7 +24,7 @@ jobs:
       - name: "Install dependencies"
         run: pip install -r requirements.txt
       - name: "Run tests for ${{ matrix.python-version }}"
-        run: "python -m unittest tests.test_arithmetic"
+        run: "python -m coverage run unittest tests.test_arithmetic"
       - name: "Convert coverage"
         run: "python -m coverage xml"
       - name: "Upload coverage to Codecov"
